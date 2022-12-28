@@ -1,57 +1,53 @@
 import AHP from "ahp";
+import supabase from "../../lib/supabase";
 
 const ahpContext = new AHP();
 
-const dataSiswa = [
-  {
-    name: "nabila",
-    criteria: [{ kemampuan: 4, komitmen: 3, riwayat_pendidikan: 5 }],
-  },
-  {
-    name: "putri",
-    criteria: [{ kemampuan: 3, komitmen: 4, riwayat_pendidikan: 3 }],
-  },
-  {
-    name: "fian",
-    criteria: [{ kemampuan: 2, komitmen: 4, riwayat_pendidikan: 2 }],
-  },
-];
-
-export default function handler(req, res) {
-  ahpContext.import({
-    items: ["nabila", "putri", "fian"],
-    criteria: ["kemampuan", "komitmen", "riwayatPendidikanNonFormal"],
-    criteriaItemRank: {
-      kemampuan: [
-        [1, 1.3, 2],
-        [0.75, 1, 1.5],
-        [0.5, 0.6, 1],
-      ],
-      komitmen: [
-        [1, 0.7, 0.7],
-        [1.3, 1, 1],
-        [1.3, 1, 1],
-      ],
-      riwayatPendidikanNonFormal: [
-        [1, 1.6, 2.5],
-        [0.6, 1, 1.5],
-        [0.4, 0.6, 1],
-      ],
-    },
-    criteriaRank: [
-      [1, 0.25, 0.5],
-      [4, 1, 2],
-      [2, 0.5, 1],
-    ],
-  });
-
-  const output = ahpContext.run();
-
-  const test = dataSiswa.map((siswa) => {
-    const lol = dataSiswa.map((siswa2) => {
-      return `${siswa.name} ${siswa2.name} ${siswa.criteria[0].kemampuan}/${siswa2.criteria[0].kemampuan}`;
+// mapping criteria data
+const getCriteria = (criteria, data) => {
+  const santri = data.map((siswa) => {
+    const santri2 = data.map((siswa2) => {
+      return siswa.Kriteria[0][criteria] / siswa2.Kriteria[0][criteria];
     });
-    return lol;
+    return santri2;
   });
-  res.status(200).json(test);
+  return santri;
+};
+
+// mapping santri id
+const getSantriId = (data) => {
+  return data.map((siswa) => {
+    return siswa.id_santri;
+  });
+};
+
+export default async function handler(req, res) {
+  const { data, error } = await supabase
+    .from("Santri")
+    .select("*, Kriteria(*)")
+    .order("id_santri", { ascending: true });
+
+  if (!error) {
+    ahpContext.import({
+      items: getSantriId(data),
+      criteria: ["Kemampuan", "Komitmen", "Riwayat_pendidikan_non_formal"],
+      criteriaItemRank: {
+        Kemampuan: getCriteria("Kemampuan", data),
+        Komitmen: getCriteria("Komitmen", data),
+        Riwayat_pendidikan_non_formal: getCriteria(
+          "Riwayat_pendidikan_non_formal",
+          data
+        ),
+      },
+      criteriaRank: [
+        [1, 0.25, 0.5],
+        [4, 1, 2],
+        [2, 0.5, 1],
+      ],
+    });
+
+    const output = ahpContext.run();
+
+    res.status(200).json(output);
+  }
 }

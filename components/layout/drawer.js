@@ -17,7 +17,7 @@ const Drawer = () => {
       <div
         id="drawer-navigation"
         className="fixed z-40 h-screen p-4 overflow-y-auto bg-white w-80 dark:bg-gray-800"
-        tabindex="-1"
+        tabIndex="-1"
         aria-labelledby="drawer-navigation-label"
       >
         <h5
