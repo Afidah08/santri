@@ -10,7 +10,7 @@ const Home = () => {
       title: "Jumlah Santri",
       jumlah: 83,
       icon: (
-        <IoPersonOutline className="bg-blue-200 p-2 rounded-full text-5xl ml-2 text-blue-500" />
+        <IoPersonOutline className="bg-slate-300 p-2 rounded-full text-5xl ml-2 text-blue-500" />
       ),
     },
     {
@@ -33,7 +33,7 @@ const Home = () => {
 
   return (
     <>
-      <div className=" bg-slate-300 h-screen flex items-center justify-center">
+      <div className=" bg-slate-300 h-[calc(100vh-4rem)] flex items-center justify-center">
         <div className="grid grid-cols-3 gap-10">
           {data.map((items) => (
             <div

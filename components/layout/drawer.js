@@ -11,8 +11,8 @@ const Drawer = () => {
   return (
     <div
       className={`${
-        isOpen ? "translate-x-0" : "-translate-x-[16.8rem]"
-      } sticky top-0`}
+        isOpen ? "translate-x-0" : "-translate-x-[16.4rem]"
+      } left-0 top-0 fixed`}
     >
       <div
         id="drawer-navigation"
@@ -33,7 +33,7 @@ const Drawer = () => {
           aria-controls="drawer-navigation"
           className="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 absolute top-2.5 right-2.5 inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
         >
-          <IoChevronForwardSharp className="bg-blue-700 p-2 rounded-full text-4xl ml-2 text-white" />
+          <IoChevronForwardSharp className="bg-blue-700 p-2 rounded-full text-3xl ml-2 text-white" />
 
           <span className="sr-only">Close menu</span>
         </button>
@@ -55,7 +55,7 @@ const Drawer = () => {
               >
                 <IoPersonSharp className=" text-2xl text-gray-400 " />
                 <span className="flex-1 ml-3 whitespace-nowrap">
-                  Data Siswa
+                  Data Santri
                 </span>
               </a>
             </li>
@@ -70,7 +70,7 @@ const Drawer = () => {
             </li>
             <li>
               <a
-                href="#"
+                href="/keluar"
                 className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
               >
                 <IoLogOutSharp className=" text-3xl text-gray-400" />

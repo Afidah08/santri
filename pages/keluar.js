@@ -2,8 +2,8 @@ import React from "react";
 
 const Keluar = () => {
   return (
-    <div className=" flex max-w-4xl">
-      <div className="bg-slate-300  min-h-screen flex text-black">
+    <div className=" flex max-w-4xl min-h-screen">
+      <div className="bg-slate-300  flex text-black">
         <h2>Nama Panjang</h2>
         <p>Nama Panggilan</p>
         <p>Tanggal Lahir</p>
