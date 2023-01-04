@@ -1,56 +1,29 @@
 import React from "react";
+import { HiOutlineMenuAlt2 } from "react-icons/hi";
 
-const Navbar = () => {
+const Navbar = ({ setIsOpen, isOpen }) => {
   return (
-    <nav className="sticky top-0 p-3 border-gray-200 rounded bg-black dark:bg-gray-800 dark:border-gray-700">
+    <nav className="bg-white z-50 py-4 px-2 sm:px-4 dark:bg-gray-800 fixed w-full top-0 left-0 border-b border-gray-200 dark:border-gray-600">
       <div className="container flex flex-wrap items-center justify-between mx-auto">
-        <div></div>
-        <a href="#" className="flex items-center">
-          <span className="self-center mr-3 text-xl font-semibold whitespace-nowrap dark:text-white">
-            Admin
-          </span>
-          <img
-            src="https://flowbite.com/docs/images/logo.svg"
-            className="h-6 mr-3 sm:h-10"
-            alt="Flowbite Logo"
-          />
-        </a>
-        <div className="hidden w-full" id="navbar-hamburger">
-          <ul className="flex flex-col mt-4 rounded-lg bg-gray-50 dark:bg-gray-800 dark:border-gray-700">
-            <li>
-              <a
-                href="#"
-                className="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded dark:bg-blue-600"
-                aria-current="page"
-              >
-                Home
-              </a>
-            </li>
-            <li>
-              <a
-                href="#"
-                className="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-              >
-                Services
-              </a>
-            </li>
-            <li>
-              <a
-                href="#"
-                className="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white"
-              >
-                Pricing
-              </a>
-            </li>
-            <li>
-              <a
-                href="#"
-                className="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-              >
-                Contact
-              </a>
-            </li>
-          </ul>
+        <button onClick={() => setIsOpen(!isOpen)}>
+          <HiOutlineMenuAlt2 className="text-2xl" />
+        </button>
+        <div class="flex items-center md:order-2">
+          <button
+            type="button"
+            class="flex mr-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
+            id="user-menu-button"
+            aria-expanded="false"
+            data-dropdown-toggle="user-dropdown"
+            data-dropdown-placement="bottom"
+          >
+            <span class="sr-only">Open user menu</span>
+            <img
+              class="w-8 h-8 rounded-full"
+              src="https://cdn.memes.com/up/72001041603845438/i/1659488366933.jpg"
+              alt="user photo"
+            />
+          </button>
         </div>
       </div>
     </nav>
