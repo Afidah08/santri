@@ -13,7 +13,7 @@ const Drawer = ({ isOpen }) => {
         id="drawer-navigation"
         className={clsx(
           isOpen ? "" : " -translate-x-full",
-          "fixed z-40 h-[calc(100vh-3.8rem)] duration-300 bottom-0 p-4 overflow-y-auto bg-white w-80 dark:bg-gray-800"
+          "fixed z-40 h-[calc(100vh-3.8rem)] duration-300 bottom-0 p-4 overflow-y-auto bg-white w-80 dark:bg-gray-800 shadow-md"
         )}
         tabIndex="-1"
         aria-labelledby="drawer-navigation-label"
