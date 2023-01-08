@@ -8,7 +8,7 @@ const Layout = ({ children }) => {
     <>
       <Navbar isOpen={isOpen} setIsOpen={setIsOpen} />
       <Drawer isOpen={isOpen} />
-      <div className="max-w-7xl mx-auto pt-24 pb-10">{children}</div>
+      <div className="max-w-7xl mx-auto">{children}</div>
     </>
   );
 };

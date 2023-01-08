@@ -4,7 +4,7 @@ import { HiOutlineMenuAlt2 } from "react-icons/hi";
 const Navbar = ({ setIsOpen, isOpen }) => {
   return (
     <nav className="bg-white z-50 py-4 px-2 sm:px-4 dark:bg-gray-800 fixed w-full top-0 left-0 border-b border-gray-200 dark:border-gray-600">
-      <div className="container flex flex-wrap items-center justify-between mx-auto">
+      <div className="flex flex-wrap items-center justify-between mx-auto">
         <button onClick={() => setIsOpen(!isOpen)}>
           <HiOutlineMenuAlt2 className="text-2xl" />
         </button>

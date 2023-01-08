@@ -10,7 +10,7 @@ const Home = () => {
       title: "Jumlah Santri",
       jumlah: 83,
       icon: (
-        <IoPersonOutline className="bg-slate-300 p-2 rounded-full text-5xl ml-2 text-blue-500" />
+        <IoPersonOutline className="bg-gray-600 p-2 rounded-full text-5xl ml-2 text-white" />
       ),
     },
     {
@@ -18,7 +18,7 @@ const Home = () => {
       title: "Jumlah Kelas",
       jumlah: 5,
       icon: (
-        <IoEaselOutline className="bg-blue-200 p-2 rounded-full text-5xl ml-2 text-blue-500" />
+        <IoEaselOutline className="bg-gray-600 p-2 rounded-full text-5xl ml-2 text-white" />
       ),
     },
     {
@@ -26,23 +26,23 @@ const Home = () => {
       title: "Jumlah Alumni",
       jumlah: 54,
       icon: (
-        <IoSchoolOutline className="bg-blue-200 p-2 rounded-full text-5xl ml-2 text-blue-500" />
+        <IoSchoolOutline className="bg-gray-600 p-2 rounded-full text-5xl ml-2 text-white" />
       ),
     },
   ];
 
   return (
     <>
-      <div className=" bg-slate-300 h-[calc(100vh-4rem)] flex items-center justify-center">
-        <div className="grid grid-cols-3 gap-10">
+      <div className="h-[calc(100vh-65px)] pt-24 flex items-center justify-center">
+        <div className="grid grid-cols-3 gap-10 w-full">
           {data.map((items) => (
             <div
               key={items.id}
-              className=" text-justify px-10 py-10 shadow-2xl bg-white flex items-center justify-between space-x-4"
+              className=" text-justify px-10 py-20 shadow-2xl bg-gray-800 border border-gray-700 rounded flex items-center justify-between space-x-4"
             >
               <div>
                 <h2>{items.title}</h2>
-                <p>{items.jumlah}</p>
+                <p className="text-4xl my-2">{items.jumlah}</p>
               </div>
               {items.icon}
             </div>
