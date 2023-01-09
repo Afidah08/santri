@@ -18,6 +18,9 @@ const Nilai = () => {
                   TL
                 </th>
                 <th scope="col" class="px-6 py-4">
+                  Jenis Kelamin
+                </th>
+                <th scope="col" class="px-6 py-4">
                   Alamat
                 </th>
                 <th scope="col" class="px-6 py-4  whitespace-nowrap">
@@ -41,6 +44,7 @@ const Nilai = () => {
                 </th>
                 <td class="px-6 py-4">Nabila Annastasyah</td>
                 <td class="px-6 py-4">17/04/2005</td>
+                <td class="px-6 py-4">Perempuan</td>
                 <td class="px-6 py-4">Kedanten Kel. Ngerong Kec. Gempol</td>
                 <td class="px-6 py-4">23/05/2022</td>
                 <td class="px-6 py-4">Lulus</td>
