@@ -5,6 +5,10 @@ export default async function handler(req, res) {
     .from("Santri")
     .select("*", { count: "exact", head: true });
 
+  const { data } = await supabase.from("Kelas").select("*");
+
+  console.log(data);
+
   const { count: countGraduatedSantri, errorGraduatedSantri } = await supabase
     .from("Santri")
     .select("*", { count: "exact", head: true })
