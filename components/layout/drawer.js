@@ -51,17 +51,17 @@ const Drawer = ({ isOpen }) => {
               </Link>
             </li>
             <li>
-              <a
-                href="Link"
+              <Link
+                href="/guru"
                 className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
               >
                 <FaChalkboardTeacher className=" text-2xl ml-1 text-gray-400" />
                 <span className="flex-1 ml-3 whitespace-nowrap">Data Guru</span>
-              </a>
+              </Link>
             </li>
             <li>
               <a
-                href="#"
+                href="/"
                 className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
               >
                 <MdStickyNote2 className=" text-2xl ml-1 text-gray-400" />
