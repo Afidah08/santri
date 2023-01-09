@@ -5,6 +5,7 @@ import { IoPersonSharp } from "react-icons/io5";
 import { IoLogOutSharp } from "react-icons/io5";
 import { MdStickyNote2 } from "react-icons/md";
 import clsx from "clsx";
+import Modal from "../modal";
 
 const Drawer = ({ isOpen }) => {
   return (
@@ -24,6 +25,8 @@ const Drawer = ({ isOpen }) => {
         >
           Menu
         </h5>
+
+        <button className="">dasdadas</button>
 
         <div className="py-4 overflow-y-auto">
           <ul className="space-y-2">
