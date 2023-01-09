@@ -4,24 +4,30 @@ const Nilai = () => {
   return (
     <>
       <main>
-        <div class="relative rounded-md overflow-hidden">
+        <div class="relative rounded-md overflow-hidden h-[calc(100vh-65px)] pt-24">
           <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400 border border-gray-700 rounded-lg">
             <thead class="text-sm text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
               <tr>
                 <th scope="col" class="px-6 py-4">
-                  Product name
+                  Kelas
                 </th>
                 <th scope="col" class="px-6 py-4">
-                  Color
+                  Nama
                 </th>
                 <th scope="col" class="px-6 py-4">
-                  Category
+                  TL
                 </th>
                 <th scope="col" class="px-6 py-4">
-                  Price
+                  Alamat
+                </th>
+                <th scope="col" class="px-6 py-4  whitespace-nowrap">
+                  Tanggal Masuk
                 </th>
                 <th scope="col" class="px-6 py-4">
-                  Action
+                  Status
+                </th>
+                <th scope="col" class="px-6 py-4">
+                  Aksi
                 </th>
               </tr>
             </thead>
@@ -31,11 +37,13 @@ const Nilai = () => {
                   scope="row"
                   class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
                 >
-                  Apple MacBook Pro 17"
+                  3
                 </th>
-                <td class="px-6 py-4">Sliver</td>
-                <td class="px-6 py-4">Laptop</td>
-                <td class="px-6 py-4">$2999</td>
+                <td class="px-6 py-4">Nabila Annastasyah</td>
+                <td class="px-6 py-4">17/04/2005</td>
+                <td class="px-6 py-4">Kedanten Kel. Ngerong Kec. Gempol</td>
+                <td class="px-6 py-4">23/05/2022</td>
+                <td class="px-6 py-4">Lulus</td>
                 <td class="px-6 py-4 flex">
                   <button
                     type="button"
