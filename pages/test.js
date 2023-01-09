@@ -148,7 +148,7 @@ const Test = () => {
             <div>
               <label
                 for="kemampuan"
-                className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
+                className="block mb-2 text-sm font-medium text-black dark:text-black"
               >
                 Kemampuan
               </label>
@@ -157,7 +157,9 @@ const Test = () => {
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 required
               >
-                <option selected>Pilih nilai Kemampuan</option>
+                <option selected className=" text-gray-500">
+                  Pilih nilai Kemampuan
+                </option>
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -177,12 +179,48 @@ const Test = () => {
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 required
               >
-                <option selected>Pilih nilai Komitmen</option>
+                <option selected className="text-gray-500">
+                  Pilih nilai Komitmen
+                </option>
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
                 <option value="4">4</option>
                 <option value="5">5</option>
+              </select>
+            </div>
+            <div>
+              <label
+                for="riwayat"
+                className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
+              >
+                Riwayat Pendidikan Non Formal
+              </label>
+              <select
+                id="riwayat_pendidikan_non_formal"
+                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                required
+              >
+                <option selected className="text-gray-500">
+                  Pilih Riwayat Pendidikan Non Formal
+                </option>
+                <option value="Pernah_belajar_di_TPA_dan_MADIN">
+                  Pernah belajar di TPA dan MADIN
+                </option>
+                <option value="Pernah_belajar_di_MADIN">
+                  Pernah belajar di MADIN
+                </option>
+                <option value="Pernah_belajar_di_TPA">
+                  Pernah belajar di TPA
+                </option>
+                <option value="Tidak_pernah_belajar_di_TPA_dan_MADIN,_tetapi_mengikuti_Majelis_Taklim">
+                  Tidak pernah belajar di TPA dan MADIN, tetapi mengikuti
+                  Majelis Taklim
+                </option>
+                <option value="Tidak_pernah_belajar_di_TPA_dan_MADIN,_dan_tidak_pernah_mengikuti_Majelis_Taklim">
+                  Tidak pernah belajar di TPA dan MADIN, dan tidak pernah
+                  mengikuti Majelis Taklim
+                </option>
               </select>
             </div>
           </div>
