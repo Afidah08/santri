@@ -27,8 +27,6 @@ const Drawer = ({ isOpen }) => {
           Menu
         </h5>
 
-        <button className="">dasdadas</button>
-
         <div className="py-4 overflow-y-auto">
           <ul className="space-y-2">
             <li>
