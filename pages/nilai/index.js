@@ -30,6 +30,9 @@ const Nilai = () => {
                   Status
                 </th>
                 <th scope="col" class="px-6 py-4">
+                  Nilai
+                </th>
+                <th scope="col" class="px-6 py-4">
                   Aksi
                 </th>
               </tr>
@@ -48,6 +51,7 @@ const Nilai = () => {
                 <td class="px-6 py-4">Kedanten Kel. Ngerong Kec. Gempol</td>
                 <td class="px-6 py-4">23/05/2022</td>
                 <td class="px-6 py-4">Lulus</td>
+                <td class="px-6 py-4">156</td>
                 <td class="px-6 py-4 flex">
                   <button
                     type="button"

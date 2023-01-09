@@ -7,6 +7,7 @@ import { IoLogOutSharp } from "react-icons/io5";
 import { MdStickyNote2 } from "react-icons/md";
 import clsx from "clsx";
 import Modal from "../modal";
+import Link from "next/link";
 
 const Drawer = ({ isOpen }) => {
   return (
@@ -30,28 +31,28 @@ const Drawer = ({ isOpen }) => {
         <div className="py-4 overflow-y-auto">
           <ul className="space-y-2">
             <li>
-              <a
+              <Link
                 href="/"
                 className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
               >
                 <BsFillBarChartFill className=" text-2xl ml-1 text-gray-400" />
                 <span className="ml-3">Dashboard</span>
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="nilai/"
+              <Link
+                href="/nilai"
                 className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
               >
                 <IoPersonSharp className=" text-2xl ml-1 text-gray-400" />
                 <span className="flex-1 ml-3 whitespace-nowrap">
                   Data Santri
                 </span>
-              </a>
+              </Link>
             </li>
             <li>
               <a
-                href="#"
+                href="Link"
                 className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
               >
                 <FaChalkboardTeacher className=" text-2xl ml-1 text-gray-400" />
