@@ -4,7 +4,7 @@ const Nilai = () => {
   return (
     <>
       <main>
-        <div class="relative rounded-md overflow-hidden">
+        <div class="relative rounded-md overflow-hidden h-[calc(100vh-65px)] pt-24">
           <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400 border border-gray-700 rounded-lg">
             <thead class="text-sm text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
               <tr>
@@ -12,16 +12,16 @@ const Nilai = () => {
                   Kelas
                 </th>
                 <th scope="col" class="px-6 py-4">
-                  Nama Panjang
+                  Nama
                 </th>
                 <th scope="col" class="px-6 py-4">
-                  Tanggal Lahir
+                  TL
                 </th>
                 <th scope="col" class="px-6 py-4">
                   Alamat
                 </th>
-                <th scope="col" class="px-6 py-4">
-                  Diterima Pada Tanggal
+                <th scope="col" class="px-6 py-4  whitespace-nowrap">
+                  Tanggal Masuk
                 </th>
                 <th scope="col" class="px-6 py-4">
                   Status
