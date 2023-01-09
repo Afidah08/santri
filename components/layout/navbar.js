@@ -1,5 +1,6 @@
 import React from "react";
 import { HiOutlineMenuAlt2 } from "react-icons/hi";
+import MyMenu from "../menu";
 
 const Navbar = ({ setIsOpen, isOpen }) => {
   return (
@@ -8,22 +9,23 @@ const Navbar = ({ setIsOpen, isOpen }) => {
         <button onClick={() => setIsOpen(!isOpen)}>
           <HiOutlineMenuAlt2 className="text-2xl" />
         </button>
-        <div class="flex items-center md:order-2">
-          <button
-            type="button"
-            class="flex mr-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
-            id="user-menu-button"
-            aria-expanded="false"
-            data-dropdown-toggle="user-dropdown"
-            data-dropdown-placement="bottom"
-          >
-            <span class="sr-only">Open user menu</span>
-            <img
-              class="w-8 h-8 rounded-full"
-              src="https://cdn.memes.com/up/72001041603845438/i/1659488366933.jpg"
-              alt="user photo"
-            />
-          </button>
+        <div className="flex items-center md:order-2">
+          <MyMenu
+            menu={
+              <img
+                class="w-8 h-8 rounded-full"
+                src="https://cdn.memes.com/up/72001041603845438/i/1659488366933.jpg"
+                alt="user photo"
+              />
+            }
+            content={
+              <ul className="p-5">
+                <li>
+                  <button>Logout</button>
+                </li>
+              </ul>
+            }
+          />
         </div>
       </div>
     </nav>

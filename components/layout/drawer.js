@@ -6,6 +6,7 @@ import { FaChalkboardTeacher } from "react-icons/fa";
 import { IoLogOutSharp } from "react-icons/io5";
 import { MdStickyNote2 } from "react-icons/md";
 import clsx from "clsx";
+import Modal from "../modal";
 
 const Drawer = ({ isOpen }) => {
   return (

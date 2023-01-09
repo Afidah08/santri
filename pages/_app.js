@@ -1,11 +1,20 @@
 import "../styles/globals.css";
+import React from "react";
 import Layout from "../components/layout/layout";
 function MyApp({ Component, pageProps }) {
+  const [noSSR, setNoSSR] = React.useState(false);
+
+  React.useEffect(() => {
+    setNoSSR(true);
+  }, []);
+
   return (
     <>
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
+      {noSSR && (
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      )}
     </>
   );
 }
