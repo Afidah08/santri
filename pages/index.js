@@ -2,6 +2,7 @@ import React from "react";
 import { IoPersonOutline } from "react-icons/io5";
 import { IoEaselOutline } from "react-icons/io5";
 import { IoSchoolOutline } from "react-icons/io5";
+import { IoBriefcaseOutline } from "react-icons/io5";
 
 const Home = () => {
   const data = [
@@ -29,12 +30,20 @@ const Home = () => {
         <IoSchoolOutline className="bg-gray-600 p-2 rounded-full text-5xl ml-2 text-white" />
       ),
     },
+    {
+      id: 4,
+      title: "Jumlah Guru",
+      jumlah: 13,
+      icon: (
+        <IoBriefcaseOutline className="bg-gray-600 p-2 rounded-full text-5xl ml-2 text-white" />
+      ),
+    },
   ];
 
   return (
     <>
-      <div className="h-[calc(100vh-65px)] pt-24 flex items-center justify-center">
-        <div className="grid grid-cols-3 gap-10 w-full">
+      <div className="h-[calc(80vh-65px)] pt-24 flex items-center justify-center">
+        <div className="grid grid-cols-4 gap-10 w-full">
           {data.map((items) => (
             <div
               key={items.id}
