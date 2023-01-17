@@ -35,13 +35,11 @@ const Nilai = () => {
     <>
       <main>
         <div className="relative rounded-md overflow-hidden h-[calc(100vh-65px)] pt-24">
-          <li>
-            <a href="/nilai/tambah">
-              <button className=" float-right mr-4 text-white hover:bg-green-500 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark: bg-green-700 dark:hover:bg-green-800 focus:outline-none dark:focus:ring-green-900">
-                + Tambah Data
-              </button>
-            </a>
-          </li>
+          <a href="/nilai/tambah">
+            <button className=" float-right mr-4 text-white hover:bg-green-500 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark: bg-green-700 dark:hover:bg-green-800 focus:outline-none dark:focus:ring-green-900">
+              + Tambah Data
+            </button>
+          </a>
           <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400 border border-gray-700 rounded-lg">
             <thead class="text-sm text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
               <tr>

@@ -15,15 +15,8 @@ export default async function handler(req, res) {
     const { error: postKelasError } = await supabase
       .from("Kelas")
       .insert({
-        Nama_lengkap: req.body.Nama_lengkap,
-        Nama_panggilan: req.body.Nama_panggilan,
-        Tanggal_lahir: req.body.Tanggal_lahir,
-        Jenis_kelamin: req.body.Jenis_kelamin,
-        Alamat: req.body.Alamat,
-        Diterima_pada_tanggal: req.body.Diterima_pada_tanggal,
-        Sekolah_formal: req.body.Sekolah_formal,
-        Kelas_sekolah: req.body.Kelas_sekolah,
-        Status: req.body.Status,
+        Nama_kelas: req.body.Nama_kelas,
+        Kapasitas: req.body.Kapasitas,
       })
       .select();
 
