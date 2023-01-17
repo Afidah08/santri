@@ -28,6 +28,8 @@ export default async function handler(req, res) {
     if (!postGuruError) {
       res.status(200).json({ status: "ok" });
     } else {
+      console.log(postGuruError);
+
       res.status(400).json({ status: "error" });
     }
   }
