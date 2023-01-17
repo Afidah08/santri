@@ -81,12 +81,10 @@ const Keluar = () => {
           <li> Pernah belajar di Madin</li>
           <li> Pernah belajar di TPA</li>
           <li>
-            {" "}
             Tidak pernah belajar di TPA dan Madin,tetapi mengikuti Majelis
             Taklim
           </li>
           <li>
-            {" "}
             Tidak pernah belajar di TPA dan Madin, dan tidak pernah mengikuti
             Majelis Taklim
           </li>
@@ -187,7 +185,7 @@ const Keluar = () => {
                   Login to your account
                 </button>
                 <div class="text-sm font-medium text-gray-500 dark:text-gray-300">
-                  Not registered?{" "}
+                  Not registered?
                   <a
                     href="#"
                     class="text-blue-700 hover:underline dark:text-blue-500"

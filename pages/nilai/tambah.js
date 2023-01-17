@@ -2,33 +2,32 @@ import React from "react";
 
 const Test = () => {
   return (
-    <section className="bg-slate-300">
+    <section className=" bg-slate-800">
       <h1 className=" text-center text-xl mb-10 mt-5 font-bold text-black ">
         DATA SANTRI
       </h1>
       <form>
         <>
-          {" "}
           <div className=" grid gap-6 ml-24 mr-20 mb-6 md:grid-cols-2">
             <div>
               <label
-                for="nama_panjang"
-                className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
+                for="nama_lengkap"
+                className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
               >
-                Nama Panjang
+                Nama Lengkap
               </label>
               <input
                 type="text"
-                id="nama_panjang"
+                id="nama_lengkap"
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                placeholder="isi nama panjang"
+                placeholder="isi nama lengkap"
                 required
               ></input>
             </div>
             <div>
               <label
                 for="nama_panggilan"
-                className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
+                className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
               >
                 Nama Panggilan
               </label>
@@ -43,7 +42,7 @@ const Test = () => {
             <div>
               <label
                 for="tanggal_lahir"
-                className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
+                className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
               >
                 Tanggal Lahir
               </label>
@@ -58,7 +57,7 @@ const Test = () => {
             <div>
               <label
                 for="lk"
-                className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
+                className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
               >
                 Jenis Kelamin :
               </label>
@@ -76,7 +75,7 @@ const Test = () => {
             <div>
               <label
                 for="alamat"
-                className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
+                className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
               >
                 Alamat
               </label>
@@ -91,7 +90,7 @@ const Test = () => {
             <div>
               <label
                 for="diterima_pada_tanggal"
-                className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
+                className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
               >
                 Diterima Pada Tanggal
               </label>
@@ -105,7 +104,7 @@ const Test = () => {
             <div>
               <label
                 for="sekolah_formal"
-                className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
+                className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
               >
                 Sekolah Formal
               </label>
@@ -120,7 +119,7 @@ const Test = () => {
             <div>
               <label
                 for="kelas_di_sekolah"
-                className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
+                className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
               >
                 Kelas di Sekolah
               </label>
@@ -133,22 +132,21 @@ const Test = () => {
                 required
               />
             </div>
-          </div>{" "}
+          </div>
         </>
       </form>
       <>
-        <p className="  text-center text-xl mb-5 mt-5 font-bold text-black w-screen">
+        <p className="  text-center text-xl mb-5 mt-5 font-bold text-white w-screen">
           KRITERIA
         </p>
       </>
       <form>
         <>
-          {" "}
           <div className=" grid gap-6 ml-24 mr-20 mb-6 md:grid-cols-2">
             <div>
               <label
                 for="kemampuan"
-                className="block mb-2 text-sm font-medium text-black dark:text-black"
+                className="block mb-2 text-sm font-medium text-black dark:text-white"
               >
                 Kemampuan
               </label>
@@ -170,7 +168,7 @@ const Test = () => {
             <div>
               <label
                 for="komitmen"
-                className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
+                className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
               >
                 Komitmen
               </label>
@@ -192,7 +190,7 @@ const Test = () => {
             <div>
               <label
                 for="riwayat"
-                className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
+                className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
               >
                 Riwayat Pendidikan Non Formal
               </label>
