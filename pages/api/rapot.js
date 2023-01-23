@@ -4,7 +4,7 @@ export default async function handler(req, res) {
   if (req.method == "GET") {
     const { data, error } = await supabase
       .from("Rapot")
-      .select("*")
+      .select("*, id_santri(*)")
       .order("id_rapot", { ascending: true });
 
     if (!error) {
@@ -18,6 +18,8 @@ export default async function handler(req, res) {
         id_santri: req.body.id_santri,
         id_kriteria: req.body.id_kriteria,
         id_admin: req.body.id_admin,
+        Tahun_ajaran: req.body.Tahun_ajaran,
+        Semester: req.body.Semester,
         Mapel_tajwid: req.body.Mapel_tajwid,
         Mapel_tauhid: req.body.Mapel_tauhid,
         Mapel_akhlak: req.body.Mapel_akhlak,

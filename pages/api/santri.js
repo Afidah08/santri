@@ -15,7 +15,7 @@ export default async function handler(req, res) {
     const { error: postSantriError, data: postSantriData } = await supabase
       .from("Santri")
       .insert({
-        id_kelas: req.body.id_kelas
+        id_kelas: req.body.id_kelas,
         Nama_lengkap: req.body.Nama_lengkap,
         Nama_panggilan: req.body.Nama_panggilan,
         Tanggal_lahir: req.body.Tanggal_lahir,

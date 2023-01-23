@@ -44,7 +44,7 @@ const Tambah = () => {
                 for="tanggal_lahir"
                 className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
               >
-                TL
+                Tanggal Lahir
               </label>
               <input
                 type="date"

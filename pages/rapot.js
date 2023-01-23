@@ -1,6 +1,35 @@
 import React from "react";
 
 const Rapot = () => {
+  const [data, setData] = React.useState([]);
+  const [loading, setLoading] = React.useState(false);
+  // fetching data
+  const fetchingData = async () => {
+    setLoading(true);
+    const response = await fetch("/api/rapot", {
+      method: "GET",
+    });
+    const result = await response.json();
+    if (result) {
+      setData(result);
+      setLoading(false);
+    } else {
+      setLoading(false);
+    }
+  };
+
+  React.useEffect(() => {
+    fetchingData();
+  }, []);
+
+  if (loading) {
+    return (
+      <div className="h-screen flex items-center justify-center">
+        Loading...
+      </div>
+    );
+  }
+
   return (
     <>
       <main>
@@ -43,35 +72,39 @@ const Rapot = () => {
               </tr>
             </thead>
             <tbody>
-              <tr class="dark:border border-gray-600">
-                <th
-                  scope="row"
-                  class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-                >
-                  3
-                </th>
-                <td class="px-6 py-4">Nabila Annastasyah</td>
-                <td class="px-6 py-4">2021-2022</td>
-                <td class="px-6 py-4">II</td>
-                <td class="px-6 py-4">8,0</td>
-                <td class="px-6 py-4">9,0</td>
-                <td class="px-6 py-4">7,0</td>
-                <td class="px-6 py-4">8,0</td>
-                <td class="px-6 py-4 flex">
-                  <button
-                    type="button"
-                    className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+              {data.map((rapot) => (
+                <tr class="dark:border border-gray-600">
+                  <th
+                    scope="row"
+                    class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
                   >
-                    Edit
-                  </button>
-                  <button
-                    type="button"
-                    class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900"
-                  >
-                    Delete
-                  </button>
-                </td>
-              </tr>
+                    {rapot.Kelas}
+                  </th>
+                  <td class="px-6 py-4">{rapot.id_santri}</td>
+                  <td class="px-6 py-4">{rapot.Tahun_ajaran}</td>
+                  <td class="px-6 py-4">{rapot.Semester}</td>
+                  <td class="px-6 py-4">{rapot.Mapel_tajwid}</td>
+                  <td class="px-6 py-4">{rapot.Mapel_tauhid}</td>
+                  <td class="px-6 py-4">{rapot.Mapel_akhlak}</td>
+                  <td class="px-6 py-4">{rapot.Mapel_fikih}</td>
+                  <td class="px-6 py-4 flex">
+                    <button
+                      data-modal-target="authentication-modal"
+                      data-modal-toggle="authentication-modal"
+                      class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+                      type="button"
+                    >
+                      Edit
+                    </button>
+                    <button
+                      type="button"
+                      class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900"
+                    >
+                      Delete
+                    </button>
+                  </td>
+                </tr>
+              ))}
             </tbody>
           </table>
         </div>

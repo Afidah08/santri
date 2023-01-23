@@ -1,6 +1,6 @@
 import React from "react";
 
-const Popup = () => {
+const Edit = () => {
   return (
     <>
       <div
@@ -117,4 +117,4 @@ const Popup = () => {
   );
 };
 
-export default Popup;
+export default Edit;

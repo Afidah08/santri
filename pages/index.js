@@ -42,7 +42,7 @@ const Home = () => {
 
   return (
     <>
-      <div className="h-[calc(80vh-65px)] pt-24 flex items-center justify-center">
+      <div className="h-[calc(100vh-65px)] pt-24 flex items-center justify-center">
         <div className="grid grid-cols-4 gap-10 w-full">
           {data.map((items) => (
             <div
