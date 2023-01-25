@@ -4,7 +4,7 @@ export default async function handler(req, res) {
   if (req.method == "GET") {
     const { data, error } = await supabase
       .from("Rapot")
-      .select("*, id_santri(*)")
+      .select("*, id_santri(*, id_kelas(*))")
       .order("id_rapot", { ascending: true });
 
     if (!error) {

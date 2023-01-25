@@ -17,6 +17,7 @@ const Rapot = () => {
       setLoading(false);
     }
   };
+  console.log(data);
 
   React.useEffect(() => {
     fetchingData();
@@ -34,7 +35,7 @@ const Rapot = () => {
     <>
       <main>
         <div class="relative rounded-md overflow-hidden h-[calc(100vh-65px)] pt-24">
-          <a href="/tambahguru">
+          <a href="/nilairapot">
             <button className=" float-right mr-4 text-white hover:bg-green-500 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark: bg-green-700 dark:hover:bg-green-800 focus:outline-none dark:focus:ring-green-900">
               + Tambah Data
             </button>
@@ -78,9 +79,9 @@ const Rapot = () => {
                     scope="row"
                     class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
                   >
-                    {rapot.Kelas}
+                    {rapot.id_santri.id_kelas.Nama_kelas}
                   </th>
-                  <td class="px-6 py-4">{rapot.id_santri}</td>
+                  <td class="px-6 py-4">{rapot.id_santri.Nama_panggilan}</td>
                   <td class="px-6 py-4">{rapot.Tahun_ajaran}</td>
                   <td class="px-6 py-4">{rapot.Semester}</td>
                   <td class="px-6 py-4">{rapot.Mapel_tajwid}</td>

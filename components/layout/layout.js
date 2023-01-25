@@ -12,9 +12,9 @@ const Layout = ({ children }) => {
     return <></>;
   }
 
-  if (!loading && !user) {
-    return <Login />;
-  }
+  // if (!loading && !user) {
+  //   return <Login />;
+  // }
   return (
     <>
       <Navbar isOpen={isOpen} setIsOpen={setIsOpen} />
