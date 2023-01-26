@@ -2,8 +2,8 @@ import React from "react";
 
 const Test = () => {
   return (
-    <section className=" bg-slate-800">
-      <h1 className=" text-center text-xl mb-10 mt-5 font-bold text-black ">
+    <section className=" mt-28">
+      <h1 className=" text-center text-xl mb-10 mt-5 font-bold text-white ">
         DATA SANTRI
       </h1>
       <form>
