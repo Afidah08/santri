@@ -1,6 +1,7 @@
 import React from "react";
 import { HiOutlineMenuAlt2 } from "react-icons/hi";
 import MyMenu from "../menu";
+import Image from "next/image";
 
 const Navbar = ({ setIsOpen, isOpen }) => {
   return (

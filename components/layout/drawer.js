@@ -69,15 +69,6 @@ const Drawer = ({ isOpen }) => {
                 </span>
               </Link>
             </li>
-            <li>
-              <a
-                href="#"
-                className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
-              >
-                <IoLogOutSharp className=" text-2xl rounded-sm ml-1 text-gray-400" />
-                <span className="flex-1 ml-3 whitespace-nowrap">Keluar</span>
-              </a>
-            </li>
           </ul>
         </div>
       </div>
