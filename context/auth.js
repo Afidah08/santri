@@ -10,10 +10,16 @@ export const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const session = supabase.auth.getSession();
+    const retriveSession = async () => {
+      const { data, error } = await supabase.auth.getSession();
 
-    setUser(session?.user ?? null);
-    setLoading(false);
+      setUser(data?.session?.user ?? null);
+      setLoading(false);
+    };
+
+    if (!user) {
+      retriveSession();
+    }
 
     // listen for changes to auth
     const { data: listener } = supabase.auth.onAuthStateChange(
@@ -22,12 +28,12 @@ export const AuthProvider = ({ children }) => {
         setLoading(false);
       }
     );
-  }, []);
+  }, [user]);
 
   // create signUp, signIn, signOut functions
   const value = {
     signUp: (data) => supabase.auth.signUp(data),
-    signIn: (data) => supabase.auth.signIn(data),
+    signIn: (data) => supabase.auth.signInWithPassword(data),
     signOut: () => supabase.auth.signOut(),
     user,
     loading,

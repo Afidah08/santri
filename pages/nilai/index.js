@@ -90,6 +90,9 @@ const Nilai = () => {
                   </td>
                   <td class="px-6 py-4">{santri.Status}</td>
                   <td class="px-6 py-4 flex">
+                    {/* <Link href={`/${santri.id_santri}/edit`}>
+                      <p>edit</p>
+                    </Link> */}
                     <button
                       data-modal-target="authentication-modal"
                       data-modal-toggle="authentication-modal"
