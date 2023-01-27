@@ -1,30 +1,27 @@
 import React from "react";
 import moment from "moment/moment";
+import Modal from "../../components/modal";
 import Link from "next/link";
+import useQuery from "../../hooks/useQuery";
 
 const Nilai = () => {
-  const [data, setData] = React.useState([]);
-  const [loading, setLoading] = React.useState(false);
-  // fetching data
-  const fetchingData = async () => {
-    setLoading(true);
-    const response = await fetch("/api/santri", {
-      method: "GET",
-    });
-    const result = await response.json();
-    if (result) {
-      setData(result);
-      setLoading(false);
-    } else {
-      setLoading(false);
-    }
-  };
+  const [isCalculateOPen, setIsCalculateOpen] = React.useState(false);
 
-  React.useEffect(() => {
-    fetchingData();
-  }, []);
+  // mengambil data Santri
+  const {
+    data: santriData,
+    loading: santriLoading,
+    error: santriError,
+  } = useQuery("GET", "/api/santri");
 
-  if (loading) {
+  // menghitung AHP
+  const {
+    data: ahpData,
+    loading: ahpLoading,
+    error: ahpError,
+  } = useQuery("GET", "/api/ahp", isCalculateOPen);
+
+  if (santriLoading) {
     return (
       <div className="h-screen flex items-center justify-center">
         Loading...
@@ -34,13 +31,33 @@ const Nilai = () => {
 
   return (
     <>
+      <Modal isOpen={isCalculateOPen} setIsOpen={setIsCalculateOpen}>
+        <div className="py-3">
+          <h1 className=" text-center text-xl font-bold text-white ">
+            Hasil Perhitungan AHP
+          </h1>
+          {ahpLoading ? (
+            "Loading..."
+          ) : (
+            <div>
+              <pre>{JSON.stringify(ahpData, null, 2)}</pre>
+            </div>
+          )}
+        </div>
+      </Modal>
       <main>
         <div className="relative rounded-md overflow-hidden h-[calc(100vh-65px)] pt-24">
           <a href="/nilai/tambah">
-            <button className=" float-right mr-4 text-white hover:bg-green-500 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark: bg-green-700 dark:hover:bg-green-800 focus:outline-none dark:focus:ring-green-900">
+            <button className="float-right text-white hover:bg-green-500 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark: bg-green-700 dark:hover:bg-green-800 focus:outline-none dark:focus:ring-green-900">
               + Tambah Data
             </button>
           </a>
+          <button
+            onClick={() => setIsCalculateOpen(true)}
+            className=" float-right mr-3 text-white hover:bg-blue-500 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark: bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-900"
+          >
+            Hitung AHP
+          </button>
           <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400 border border-gray-700 rounded-lg">
             <thead class="text-sm text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
               <tr>
@@ -71,7 +88,7 @@ const Nilai = () => {
               </tr>
             </thead>
             <tbody>
-              {data.map((santri) => (
+              {santriData.map((santri) => (
                 <tr class="dark:border border-gray-600">
                   <th
                     scope="row"
@@ -94,9 +111,7 @@ const Nilai = () => {
                       <p>edit</p>
                     </Link> */}
                     <button
-                      data-modal-target="authentication-modal"
-                      data-modal-toggle="authentication-modal"
-                      class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+                      className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
                       type="button"
                     >
                       Edit
