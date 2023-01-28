@@ -5,6 +5,7 @@ import {
   IoBriefcaseOutline,
   IoEaselOutline,
 } from "react-icons/io5";
+import Loading from "../components/loading";
 import useQuery from "../hooks/useQuery";
 
 const Home = () => {
@@ -24,14 +25,18 @@ const Home = () => {
   ];
 
   if (totalLoading) {
-    return <></>;
+    return (
+      <div className="h-screen flex items-center justify-center">
+        <Loading />
+      </div>
+    );
   }
 
   return (
     <>
       <div className="h-[calc(100vh-65px)] pt-24 flex items-center justify-center">
         <div className="grid grid-cols-2 gap-5 w-full">
-          {totalData.map((items, index) => (
+          {totalData?.map((items, index) => (
             <div
               key={items.index}
               className=" text-justify px-10 py-20 shadow-2xl bg-gray-800 border border-gray-700 rounded flex items-center justify-between space-x-4"

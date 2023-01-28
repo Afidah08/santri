@@ -3,6 +3,7 @@ import moment from "moment/moment";
 import Modal from "../../components/modal";
 import Link from "next/link";
 import useQuery from "../../hooks/useQuery";
+import Loading from "../../components/loading";
 
 const Nilai = () => {
   const [isCalculateOPen, setIsCalculateOpen] = React.useState(false);
@@ -23,8 +24,8 @@ const Nilai = () => {
 
   if (santriLoading) {
     return (
-      <div className="h-screen flex items-center justify-center">
-        Loading...
+      <div className="h-screen flex items-center justify-center animate-spin">
+        <Loading />
       </div>
     );
   }
@@ -37,7 +38,9 @@ const Nilai = () => {
             Hasil Perhitungan AHP
           </h1>
           {ahpLoading ? (
-            "Loading..."
+            <div className="h-[40vh] flex items-center justify-center">
+              <Loading />
+            </div>
           ) : (
             <div>
               <pre>{JSON.stringify(ahpData, null, 2)}</pre>
