@@ -12,8 +12,6 @@ const Layout = ({ children }) => {
     return <></>;
   }
 
-  console.log(user);
-
   if (!loading && !user) {
     return <Login />;
   }

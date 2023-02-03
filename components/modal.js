@@ -6,10 +6,6 @@ export default function Modal({ isOpen, setIsOpen, children }) {
     setIsOpen(false);
   }
 
-  function openModal() {
-    setIsOpen(true);
-  }
-
   return (
     <>
       <Transition appear show={isOpen} as={Fragment}>
@@ -37,7 +33,7 @@ export default function Modal({ isOpen, setIsOpen, children }) {
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
               >
-                <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-md bg-gray-800 backdrop-blur-xl backdrop-filter p-6 text-left align-middle shadow-xl transition-all">
+                <Dialog.Panel className="w-full max-w-xl max-h-[70vh] overflow-auto transform  rounded-md bg-gray-800 backdrop-blur-xl backdrop-filter p-6 text-left align-middle shadow-xl transition-all">
                   {children}
                 </Dialog.Panel>
               </Transition.Child>

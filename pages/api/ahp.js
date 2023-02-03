@@ -48,16 +48,17 @@ export default async function handler(req, res) {
       });
 
       const output = ahpContext.run();
-      res.status(200).json(
-        santriData
+      res.status(200).json({
+        ...output,
+        rankedScoreMap: santriData
           .map((santri) => {
             return {
               santri: santri.Nama_lengkap,
               nilai: output.rankedScoreMap[santri.id_santri],
             };
           })
-          .sort((a, b) => b.nilai - a.nilai)
-      );
+          .sort((a, b) => b.nilai - a.nilai),
+      });
     }
   }
 }
