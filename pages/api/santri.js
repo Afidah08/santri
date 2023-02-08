@@ -43,4 +43,16 @@ export default async function handler(req, res) {
       }
     }
   }
+  if (req.method == "DELETE") {
+    const { error } = await supabase
+      .from("Santri")
+      .delete()
+      .eq("id_santri", req.body.id_santri);
+
+    if (!error) {
+      res.status(200).json({ status: "ok" });
+    } else {
+      res.status(400).json({ status: "error" });
+    }
+  }
 }

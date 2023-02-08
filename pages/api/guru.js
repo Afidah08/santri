@@ -15,6 +15,7 @@ export default async function handler(req, res) {
     const { error: postGuruError } = await supabase
       .from("Guru")
       .insert({
+        id_kelas: req.body.id_kelas,
         NIK: req.body.NIK,
         Nama_lengkap: req.body.Nama_lengkap,
         Tanggal_lahir: req.body.Tanggal_lahir,
@@ -30,6 +31,19 @@ export default async function handler(req, res) {
     } else {
       console.log(postGuruError);
 
+      res.status(400).json({ status: "error" });
+    }
+  }
+
+  if (req.method == "DELETE") {
+    const { error } = await supabase
+      .from("Guru")
+      .delete()
+      .eq("id_guru", req.body.id_guru);
+
+    if (!error) {
+      res.status(200).json({ status: "ok" });
+    } else {
       res.status(400).json({ status: "error" });
     }
   }

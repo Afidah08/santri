@@ -33,4 +33,17 @@ export default async function handler(req, res) {
       res.status(400).json({ status: "error" });
     }
   }
+
+  if (req.method == "DELETE") {
+    const { error } = await supabase
+      .from("Rapot")
+      .delete()
+      .eq("id_rapot", req.body.id_rapot);
+
+    if (!error) {
+      res.status(200).json({ status: "ok" });
+    } else {
+      res.status(400).json({ status: "error" });
+    }
+  }
 }

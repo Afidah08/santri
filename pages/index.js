@@ -34,7 +34,7 @@ const Home = () => {
 
   return (
     <>
-      <div className="h-[calc(100vh-65px)]  pt-32 flex  items-center justify-center">
+      <div className="h-[calc(100vh-65px)] pt-32 flex  items-center justify-center">
         <div className="grid grid-cols-4 gap-5 w-full">
           {totalData?.map((items, index) => (
             <div
