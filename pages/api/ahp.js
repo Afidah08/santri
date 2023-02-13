@@ -1,8 +1,6 @@
 import AHP from "ahp";
 import supabase from "../../lib/supabase";
 
-const ahpContext = new AHP();
-
 // mapping criteria data
 const getCriteria = (criteria, data) => {
   const santri = data.map((siswa) => {
@@ -22,11 +20,15 @@ const getSantriId = (data) => {
 };
 
 export default async function handler(req, res) {
+  const ahpContext = new AHP();
+
   if (req.method == "GET") {
     const { data: santriData, error: santriError } = await supabase
       .from("Santri")
       .select("*, Kriteria(*)")
       .order("id_santri", { ascending: true });
+
+    console.log(santriData);
 
     if (!santriError) {
       ahpContext.import({

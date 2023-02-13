@@ -1,9 +1,12 @@
 import Link from "next/link";
 import React from "react";
+import useMutation from "../../hooks/useMutation";
 
 const Rapot = () => {
   const [data, setData] = React.useState([]);
   const [loading, setLoading] = React.useState(false);
+  const [deletedId, setDeletedId] = React.useState(null);
+
   // fetching data
   const fetchingData = async () => {
     setLoading(true);
@@ -24,10 +27,22 @@ const Rapot = () => {
     fetchingData();
   }, []);
 
+  // Delete Rapot
+  const deleteRapot = useMutation("DELETE", "/api/rapot");
+
+  // delete method
+  const onDelete = (id) => {
+    const popup = window.confirm("Apakah yakin ingin menghapus?");
+    if (popup) {
+      deleteRapot.mutate({ id_rapot: id }, `/rapot`);
+      setDeletedId(id);
+    }
+  };
+
   if (loading) {
     return (
       <div className="h-screen flex items-center justify-center">
-        Loading...
+        <loading />
       </div>
     );
   }
@@ -76,7 +91,7 @@ const Rapot = () => {
               </thead>
               <tbody>
                 {data.map((rapot) => (
-                  <tr class="dark:border border-gray-600">
+                  <tr key={rapot.id_rapot} class="dark:border border-gray-600">
                     <th
                       scope="row"
                       class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
@@ -104,6 +119,7 @@ const Rapot = () => {
                         </Link>
                       }
                       <button
+                        onClick={() => onDelete(rapot.id_rapot)}
                         type="button"
                         class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900"
                       >

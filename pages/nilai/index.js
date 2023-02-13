@@ -1,19 +1,20 @@
 import React from "react";
 import moment from "moment/moment";
 import Modal from "../../components/modal";
-import Link from "next/link";
+import useMutation from "../../hooks/useMutation";
 import useQuery from "../../hooks/useQuery";
 import Loading from "../../components/loading";
 
 const Nilai = () => {
   const [isCalculateOPen, setIsCalculateOpen] = React.useState(false);
+  const [deletedId, setDeletedId] = React.useState(null);
 
   // mengambil data Santri
   const {
     data: santriData,
     loading: santriLoading,
     error: santriError,
-  } = useQuery("GET", "/api/santri");
+  } = useQuery("GET", "/api/santri", deletedId);
 
   // menghitung AHP
   const {
@@ -21,6 +22,18 @@ const Nilai = () => {
     loading: ahpLoading,
     error: ahpError,
   } = useQuery("GET", "/api/ahp", isCalculateOPen);
+
+  // Delete santri
+  const deleteSantri = useMutation("DELETE", "/api/santri");
+
+  // delete method
+  const onDelete = (id) => {
+    const popup = window.confirm("Apakah yakin ingin menghapus?");
+    if (popup) {
+      deleteSantri.mutate({ id_santri: id }, `/nilai`);
+      setDeletedId(id);
+    }
+  };
 
   if (santriLoading) {
     return (
@@ -93,7 +106,10 @@ const Nilai = () => {
               </thead>
               <tbody>
                 {santriData.map((santri) => (
-                  <tr class="dark:border border-gray-600">
+                  <tr
+                    key={santri.id_santri}
+                    class="dark:border border-gray-600"
+                  >
                     <th
                       scope="row"
                       class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
@@ -123,6 +139,7 @@ const Nilai = () => {
                         Edit
                       </button>
                       <button
+                        onClick={() => onDelete(santri.id_santri)}
                         type="button"
                         class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900"
                       >

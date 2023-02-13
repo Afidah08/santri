@@ -23,19 +23,17 @@ const useMutation = (method, url) => {
     if (response.ok) {
       if (method == "POST") {
         toast.success("Berhasil ditambahkan");
-      } else {
+      } else if (method == "PUT") {
         toast.success("Berhasil diupdate");
+      } else if (method == "DELETE") {
+        toast.success("Berhasil terhapus");
       }
 
       router.push(route);
       setData(result);
       setLoading(false);
     } else {
-      if (method == "PUT") {
-        toast.error("Ada yang salah");
-      } else {
-        toast.error("Ada yang salah");
-      }
+      toast.error("Ada yang salah");
       setLoading(false);
       setError(true);
     }

@@ -1,10 +1,13 @@
 import React from "react";
 import moment from "moment/moment";
 import Link from "next/link";
+import useMutation from "../../hooks/useMutation";
 
 const Guru = () => {
   const [data, setData] = React.useState([]);
   const [loading, setLoading] = React.useState(false);
+  const [deletedId, setDeletedId] = React.useState(null);
+
   // fetching data
   const fetchingData = async () => {
     setLoading(true);
@@ -23,6 +26,18 @@ const Guru = () => {
   React.useEffect(() => {
     fetchingData();
   }, []);
+
+  // Delete Guru
+  const deleteGuru = useMutation("DELETE", "/api/guru");
+
+  // delete method
+  const onDelete = (id) => {
+    const popup = window.confirm("Apakah yakin ingin menghapus?");
+    if (popup) {
+      deleteGuru.mutate({ id_guru: id }, `/guru`);
+      setDeletedId(id);
+    }
+  };
 
   if (loading) {
     return (
@@ -102,6 +117,7 @@ const Guru = () => {
                         </Link>
                       }
                       <button
+                        onClick={() => onDelete(guru.id_guru)}
                         type="button"
                         class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900"
                       >
