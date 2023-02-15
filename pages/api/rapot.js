@@ -34,6 +34,30 @@ export default async function handler(req, res) {
     }
   }
 
+  if (req.method == "PUT") {
+    const { error: putRapotError, data: putRapotData } = await supabase
+      .from("Rapot")
+      .update({
+        id_santri: req.body.id_santri,
+        id_kriteria: req.body.id_kriteria,
+        id_admin: req.body.id_admin,
+        Tahun_ajaran: req.body.Tahun_ajaran,
+        Semester: req.body.Semester,
+        Mapel_tajwid: req.body.Mapel_tajwid,
+        Mapel_tauhid: req.body.Mapel_tauhid,
+        Mapel_akhlak: req.body.Mapel_akhlak,
+        Mapel_fikih: req.body.Mapel_fikih,
+      })
+      .eq("id_rapot", req.body.id_rapot)
+      .select();
+
+    if (!putRapotError) {
+      res.status(200).json({ status: "ok" });
+    } else {
+      res.status(200).json({ status: "error" });
+    }
+  }
+
   if (req.method == "DELETE") {
     const { error } = await supabase
       .from("Rapot")

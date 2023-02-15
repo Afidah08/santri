@@ -21,7 +21,6 @@ const Rapot = () => {
       setLoading(false);
     }
   };
-  console.log(data);
 
   React.useEffect(() => {
     fetchingData();
@@ -118,6 +117,7 @@ const Rapot = () => {
                           </button>
                         </Link>
                       }
+
                       <button
                         onClick={() => onDelete(rapot.id_rapot)}
                         type="button"
