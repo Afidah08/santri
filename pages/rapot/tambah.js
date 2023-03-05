@@ -27,7 +27,7 @@ const Nilairapot = () => {
         <div className=" grid gap-6 ml-24 mr-20 mb-6 md:grid-cols-2">
           <div>
             <label
-              for="id_santri "
+              htmlFor="id_santri "
               className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
             >
               ID santri
@@ -43,7 +43,7 @@ const Nilairapot = () => {
           </div>
           <div>
             <label
-              for="Tahun_ajaran"
+              htmlFor="Tahun_ajaran"
               className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
             >
               Tahun Ajaran
@@ -63,7 +63,7 @@ const Nilairapot = () => {
           </div>
           <div>
             <label
-              for="Semester"
+              htmlFor="Semester"
               className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
             >
               Semester
@@ -81,7 +81,7 @@ const Nilairapot = () => {
           </div>
           <div>
             <label
-              for="Mapel_tajwid"
+              htmlFor="Mapel_tajwid"
               className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
             >
               Nilai Tajwid
@@ -98,7 +98,7 @@ const Nilairapot = () => {
           </div>
           <div>
             <label
-              for="Mapel_tauhid"
+              htmlFor="Mapel_tauhid"
               className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
             >
               Nilai Tauhid
@@ -115,7 +115,7 @@ const Nilairapot = () => {
           </div>
           <div>
             <label
-              for="Mapel_akhlak"
+              htmlFor="Mapel_akhlak"
               className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
             >
               Nilai Akhlak
@@ -132,7 +132,7 @@ const Nilairapot = () => {
           </div>
           <div>
             <label
-              for="Mapel_fikih"
+              htmlFor="Mapel_fikih"
               className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
             >
               Nilai Fikih

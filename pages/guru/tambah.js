@@ -24,7 +24,7 @@ const Tambah = () => {
         <div className=" grid gap-6 ml-24 mr-20 mb-6 md:grid-cols-2">
           <div>
             <label
-              for="NIK"
+              htmlFor="NIK"
               className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
             >
               NIK
@@ -40,7 +40,7 @@ const Tambah = () => {
           </div>
           <div>
             <label
-              for="Nama_lengkap"
+              htmlFor="Nama_lengkap"
               className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
             >
               Nama Lengkap
@@ -56,7 +56,7 @@ const Tambah = () => {
           </div>
           <div>
             <label
-              for="Tanggal_lahir"
+              htmlFor="Tanggal_lahir"
               className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
             >
               Tanggal Lahir
@@ -72,7 +72,7 @@ const Tambah = () => {
           </div>
           <div>
             <label
-              for="Jenis_kelamin"
+              htmlFor="Jenis_kelamin"
               className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
             >
               Jenis Kelamin :
@@ -90,7 +90,7 @@ const Tambah = () => {
           </div>
           <div>
             <label
-              for="Pendidikan"
+              htmlFor="Pendidikan"
               className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
             >
               Pendidikan
@@ -106,7 +106,7 @@ const Tambah = () => {
           </div>
           <div>
             <label
-              for="Alamat"
+              htmlFor="Alamat"
               className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
             >
               Alamat
@@ -122,7 +122,7 @@ const Tambah = () => {
           </div>
           <div>
             <label
-              for="Wali_kelas"
+              htmlFor="Wali_kelas"
               className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
             >
               Wali Kelas

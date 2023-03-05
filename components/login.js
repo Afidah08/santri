@@ -25,7 +25,7 @@ const Login = () => {
           Login Admin
         </h1>
         <form onSubmit={onLogin} className="mt-5">
-          <label for="" className="block">
+          <label htmlFor="" className="block">
             <span className="block font-semibold text-slate-800 mx-5  text-sm">
               Alamat Email
             </span>
@@ -36,7 +36,7 @@ const Login = () => {
               placeholder="emailmu@gmail.com"
             ></input>
           </label>
-          <label for="" className="block mt-2">
+          <label htmlFor="" className="block mt-2">
             <span className="block font-semibold text-slate-800 mx-5 text-sm">
               Password
             </span>

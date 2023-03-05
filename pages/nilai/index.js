@@ -106,10 +106,7 @@ const Nilai = () => {
               </thead>
               <tbody>
                 {santriData.map((santri) => (
-                  <tr
-                    key={santri.id_santri}
-                    class="dark:border border-gray-600"
-                  >
+                  <tr class="dark:border border-gray-600">
                     <th
                       scope="row"
                       class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
@@ -132,12 +129,14 @@ const Nilai = () => {
                       {/* <Link href={`/${santri.id_santri}/edit`}>
                       <p>edit</p>
                     </Link> */}
-                      <button
-                        className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
-                        type="button"
-                      >
-                        Edit
-                      </button>
+                      <a href={`/nilai/${santri.id_santri}/edit`}>
+                        <button
+                          className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+                          type="button"
+                        >
+                          Edit
+                        </button>
+                      </a>
                       <button
                         onClick={() => onDelete(santri.id_santri)}
                         type="button"

@@ -12,7 +12,6 @@ const useQuery = (method, url, isClick) => {
     });
     const result = await response.json();
     if (result) {
-      console.log("masuk sini");
       setData(result);
       setLoading(false);
     } else {

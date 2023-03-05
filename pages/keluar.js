@@ -6,14 +6,14 @@ const login = () => {
       <div className="container max-w-sm bg-white m-auto p-10">
         <h1 className="text-3xl font-thin text-center">Form Login</h1>
         <form action="" className="mt-5">
-          <label for="" className="block">
+          <label htmlFor="" className="block">
             <span className="block font-semibold text-sm">Alamat Email</span>
             <input
               type="text"
               className=" block mt-1 border border-sky-400 rounded-md"
             ></input>
           </label>
-          <label for="" className="block">
+          <label htmlFor="" className="block">
             <span className="block font-semibold text-sm">Password</span>
             <input
               type="text"

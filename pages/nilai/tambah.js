@@ -11,6 +11,7 @@ const Test = () => {
   const onSubmitForm = (e) => {
     e.preventDefault();
     addSantri.mutate(form, "/nilai");
+    console.log(form);
   };
 
   // onchange form
@@ -27,7 +28,7 @@ const Test = () => {
         <div className="grid gap-6  mb-6 md:grid-cols-2">
           <div>
             <label
-              for="Nama_lengkap"
+              htmlFor="Nama_lengkap"
               className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
             >
               Nama Lengkap
@@ -43,7 +44,7 @@ const Test = () => {
           </div>
           <div>
             <label
-              for="Nama_panggilan"
+              htmlFor="Nama_panggilan"
               className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
             >
               Nama Panggilan
@@ -59,7 +60,7 @@ const Test = () => {
           </div>
           <div>
             <label
-              for="Tanggal_lahir"
+              htmlFor="Tanggal_lahir"
               className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
             >
               Tanggal Lahir
@@ -75,7 +76,7 @@ const Test = () => {
           </div>
           <div>
             <label
-              for="Jenis_kelamin"
+              htmlFor="Jenis_kelamin"
               className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
             >
               Jenis Kelamin :
@@ -93,7 +94,7 @@ const Test = () => {
           </div>
           <div>
             <label
-              for="Alamat"
+              htmlFor="Alamat"
               className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
             >
               Alamat
@@ -109,7 +110,7 @@ const Test = () => {
           </div>
           <div>
             <label
-              for="Diterima_pada_tanggal"
+              htmlFor="Diterima_pada_tanggal"
               className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
             >
               Diterima Pada Tanggal
@@ -126,7 +127,7 @@ const Test = () => {
           </div>
           <div>
             <label
-              for="Sekolah_formal"
+              htmlFor="Sekolah_formal"
               className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
             >
               Sekolah Formal
@@ -142,7 +143,7 @@ const Test = () => {
           </div>
           <div>
             <label
-              for="Kelas_sekolah"
+              htmlFor="Kelas_sekolah"
               className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
             >
               Kelas di Sekolah
@@ -181,7 +182,7 @@ const Test = () => {
         <div className="grid gap-6 mb-6 md:grid-cols-2">
           <div>
             <label
-              for="kemampuan"
+              htmlFor="kemampuan"
               className="block mb-2 text-sm font-medium text-black dark:text-white"
             >
               Kemampuan
@@ -205,7 +206,7 @@ const Test = () => {
 
           <div>
             <label
-              for="Komitmen"
+              htmlFor="Komitmen"
               className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
             >
               Komitmen
@@ -228,7 +229,7 @@ const Test = () => {
           </div>
           <div>
             <label
-              for="Riwayat_pendidikan_non_formal"
+              htmlFor="Riwayat_pendidikan_non_formal"
               className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
             >
               Riwayat Pendidikan Non Formal
