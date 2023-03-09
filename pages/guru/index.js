@@ -105,7 +105,7 @@ const Guru = () => {
                     <td class="px-6 py-4">{guru.Wali_kelas}</td>
                     <td class="px-6 py-4 flex">
                       {
-                        <Link href={`/${guru.id_guru}/edit`}>
+                        <Link href={`/guru/${guru.id_guru}/edit`}>
                           <button
                             data-modal-target="authentication-modal"
                             data-modal-toggle="authentication-modal"

@@ -11,7 +11,6 @@ const Test = () => {
   const onSubmitForm = (e) => {
     e.preventDefault();
     addSantri.mutate(form, "/nilai");
-    console.log(form);
   };
 
   // onchange form

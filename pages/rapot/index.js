@@ -106,7 +106,7 @@ const Rapot = () => {
                     <td class="px-6 py-4">{rapot.Mapel_fikih}</td>
                     <td class="px-6 py-4 flex">
                       {
-                        <Link href={`/${rapot.id_rapot}/edit`}>
+                        <Link href={`/rapot/${rapot.id_rapot}/edit`}>
                           <button
                             data-modal-target="authentication-modal"
                             data-modal-toggle="authentication-modal"

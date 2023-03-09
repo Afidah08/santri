@@ -28,8 +28,9 @@ const useMutation = (method, url) => {
       } else if (method == "DELETE") {
         toast.success("Berhasil terhapus");
       }
-
-      router.push(route);
+      if (route) {
+        router.push(route);
+      }
       setData(result);
       setLoading(false);
     } else {

@@ -1,4 +1,4 @@
-import supabase from "../../lib/supabase";
+import supabase from "../../../lib/supabase";
 
 export default async function handler(req, res) {
   if (req.method == "GET") {
@@ -12,7 +12,7 @@ export default async function handler(req, res) {
     }
   }
   if (req.method == "POST") {
-    const { error: postGuruError } = await supabase
+    const { error: postGuruError, data: postGuruData } = await supabase
       .from("Guru")
       .insert({
         id_kelas: req.body.id_kelas,

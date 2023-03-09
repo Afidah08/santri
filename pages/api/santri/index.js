@@ -62,10 +62,12 @@ export default async function handler(req, res) {
       .eq("id_santri", req.body.id_santri)
       .select("*, Kriteria(*)");
 
+    console.log(putSantriError);
+
     if (!putSantriError) {
       const { error: putKriteriaError } = await supabase
         .from("Kriteria")
-        .insert({
+        .update({
           id_santri: putSantriData[0].id_santri,
           Kemampuan: req.body.Kemampuan,
           Komitmen: req.body.Komitmen,
