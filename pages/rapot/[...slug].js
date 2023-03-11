@@ -34,15 +34,19 @@ const Edit = ({ slug }) => {
     error: rapotError,
   } = useQuery("GET", `/api/rapot/${slug[0]}`);
 
+  const {
+    data: santriData,
+    loading: santriLoading,
+    error: santriError,
+  } = useQuery("GET", "/api/santri");
+
   React.useEffect(() => {
     if (rapotData) {
       setForm({ ...rapotData[0], ...rapotData[0] });
     }
   }, [rapotData]);
 
-  console.log(slug);
-
-  if (rapotLoading) {
+  if (rapotLoading || santriLoading) {
     return (
       <div className="h-screen flex items-center justify-center">
         <Loading />
@@ -58,40 +62,22 @@ const Edit = ({ slug }) => {
         <div className=" grid gap-6 ml-24 mr-20 mb-6 md:grid-cols-2">
           <div>
             <label
-              htmlFor="Nama "
+              htmlFor="tahun_ajaran"
               className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
             >
               Nama
             </label>
-            <input
-              type="text"
-              defaultValue={rapotData[0].id_santri}
-              onChange={(e) => onChangeForm("id_santri", e.target.value)}
-              id="nama"
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-              placeholder="isi Nama"
-              required
-            ></input>
-          </div>
-          <div>
-            <label
-              htmlFor="tahun_ajaran"
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-            >
-              Tahun Ajaran
-            </label>
             <select
-              onChange={(e) => onChangeForm("Tahun_ajaran", e.target.value)}
-              defaultValue={rapotData[0].Tahun_ajaran}
-              id="tahun_ajaran"
+              onChange={(e) => onChangeForm("id_santri", e.target.value)}
+              defaultValue={rapotData[0].id_santri}
+              disabled={true}
               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               required
             >
-              <option selected>Pilih Tahun Ajaran</option>
-              <option value="2018 - 2019">2018 - 2019</option>
-              <option value="2019 - 2020">2019 - 2020</option>
-              <option value="2020 - 2021">2020 - 2021</option>
-              <option value="2021 - 2022">2021 - 2022</option>
+              <option selected>Pilih Santri</option>
+              {santriData.map((santri) => (
+                <option value={santri.id_santri}>{santri.Nama_lengkap}</option>
+              ))}
             </select>
           </div>
           <div>

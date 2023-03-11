@@ -4,9 +4,10 @@ export default async function handler(req, res) {
   if (req.method == "GET") {
     const { data, error } = await supabase
       .from("Santri")
-      .select("*, Kriteria(*)")
+      .select("*, Kriteria(*), id_kelas(*)")
+      .neq("Status", "Mutasi")
       .order("id_santri", { ascending: true });
-
+    console.log(error);
     if (!error) {
       res.status(200).json(data);
     }

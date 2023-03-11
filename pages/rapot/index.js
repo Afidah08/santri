@@ -1,30 +1,19 @@
 import Link from "next/link";
 import React from "react";
 import useMutation from "../../hooks/useMutation";
+import useQuery from "../../hooks/useQuery";
+import Loading from "../../components/loading";
 
 const Rapot = () => {
   const [data, setData] = React.useState([]);
   const [loading, setLoading] = React.useState(false);
   const [deletedId, setDeletedId] = React.useState(null);
 
-  // fetching data
-  const fetchingData = async () => {
-    setLoading(true);
-    const response = await fetch("/api/rapot", {
-      method: "GET",
-    });
-    const result = await response.json();
-    if (result) {
-      setData(result);
-      setLoading(false);
-    } else {
-      setLoading(false);
-    }
-  };
-
-  React.useEffect(() => {
-    fetchingData();
-  }, []);
+  const {
+    data: rapotData,
+    loading: rapotLoading,
+    error: rapotError,
+  } = useQuery("GET", "/api/rapot", deletedId);
 
   // Delete Rapot
   const deleteRapot = useMutation("DELETE", "/api/rapot");
@@ -38,7 +27,7 @@ const Rapot = () => {
     }
   };
 
-  if (loading) {
+  if (rapotLoading) {
     return (
       <div className="h-screen flex items-center justify-center">
         <loading />
@@ -89,7 +78,7 @@ const Rapot = () => {
                 </tr>
               </thead>
               <tbody>
-                {data.map((rapot) => (
+                {rapotData.map((rapot) => (
                   <tr key={rapot.id_rapot} class="dark:border border-gray-600">
                     <th
                       scope="row"
@@ -97,7 +86,7 @@ const Rapot = () => {
                     >
                       {rapot.id_santri.id_kelas.Nama_kelas}
                     </th>
-                    <td class="px-6 py-4">{rapot.id_santri.Nama_panggilan}</td>
+                    <td class="px-6 py-4">{rapot.id_santri.Nama_lengkap}</td>
                     <td class="px-6 py-4">{rapot.Tahun_ajaran}</td>
                     <td class="px-6 py-4">{rapot.Semester}</td>
                     <td class="px-6 py-4">{rapot.Mapel_tajwid}</td>

@@ -2,30 +2,18 @@ import React from "react";
 import moment from "moment/moment";
 import Link from "next/link";
 import useMutation from "../../hooks/useMutation";
+import useQuery from "../../hooks/useQuery";
+import Loading from "../../components/loading";
 
 const Guru = () => {
   const [data, setData] = React.useState([]);
-  const [loading, setLoading] = React.useState(false);
   const [deletedId, setDeletedId] = React.useState(null);
 
-  // fetching data
-  const fetchingData = async () => {
-    setLoading(true);
-    const response = await fetch("/api/guru", {
-      method: "GET",
-    });
-    const result = await response.json();
-    if (result) {
-      setData(result);
-      setLoading(false);
-    } else {
-      setLoading(false);
-    }
-  };
-
-  React.useEffect(() => {
-    fetchingData();
-  }, []);
+  const {
+    data: guruData,
+    loading: guruLoading,
+    error: guruError,
+  } = useQuery("GET", "/api/guru", deletedId);
 
   // Delete Guru
   const deleteGuru = useMutation("DELETE", "/api/guru");
@@ -39,7 +27,7 @@ const Guru = () => {
     }
   };
 
-  if (loading) {
+  if (guruLoading) {
     return (
       <div className="h-screen flex items-center justify-center">
         Loading...
@@ -87,7 +75,7 @@ const Guru = () => {
                 </tr>
               </thead>
               <tbody>
-                {data.map((guru) => (
+                {guruData.map((guru) => (
                   <tr class="dark:border border-gray-600">
                     <th
                       scope="row"

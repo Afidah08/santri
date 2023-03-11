@@ -111,7 +111,7 @@ const Nilai = () => {
                       scope="row"
                       class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
                     >
-                      {santri.Kelas}
+                      {santri?.id_kelas?.Nama_kelas}
                     </th>
                     <td class="px-6 py-4">{santri.Nama_lengkap}</td>
                     <td class="px-6 py-4">

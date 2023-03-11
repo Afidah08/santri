@@ -5,7 +5,7 @@ export default async function handler(req, res) {
     const { slug } = req.query;
     const { data, error } = await supabase
       .from("Santri")
-      .select("*, Kriteria(*)")
+      .select("*, Kriteria(*), id_kelas(*)")
       .eq("id_santri", slug);
 
     if (!error) {

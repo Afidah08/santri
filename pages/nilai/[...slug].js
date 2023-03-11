@@ -37,13 +37,20 @@ const Edit = ({ slug }) => {
     error: santriError,
   } = useQuery("GET", `/api/santri/${slug[0]}`);
 
+  // mengambil data kelas
+  const {
+    data: kelasData,
+    loading: kelasLoading,
+    error: kelasError,
+  } = useQuery("GET", "/api/kelas");
+
   React.useEffect(() => {
     if (santriData) {
       setForm({ ...santriData[0], ...santriData[0].Kriteria[0] });
     }
   }, [santriData]);
 
-  if (santriLoading) {
+  if (santriLoading || kelasLoading) {
     return (
       <div className="h-screen flex items-center justify-center">
         <Loading />
@@ -223,21 +230,22 @@ const Edit = ({ slug }) => {
           </div>
           <div>
             <label
-              htmlFor="id_kelas"
+              htmlFor="kelas"
               className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
             >
-              Kelas
+              Kelas :
             </label>
-            <input
-              type="number"
-              defaultValue={santriData[0].santri_id_kelas}
-              onChange={(e) => onChangeForm("santri_id_kelas", e.target.value)}
-              id="kelas"
-              min="1"
-              max="5"
+            <select
+              defaultValue={santriData[0].id_kelas.id_kelas}
+              onChange={(e) => onChangeForm("id_kelas", e.target.value)}
               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               required
-            />
+            >
+              <option>Pilih Kelas</option>
+              {kelasData.map((kelas) => (
+                <option value={kelas.id_kelas}>{kelas.Nama_kelas}</option>
+              ))}
+            </select>
           </div>
         </div>
 
